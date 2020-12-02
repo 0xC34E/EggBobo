@@ -12,7 +12,7 @@ client.once("ready", () =>
   console.log("this shit started lol");
   changestatus();
   
-  setTimeout(changestatus,10000);
+  setTimeout(changestatus,5000);
 }); 
 
 function changestatus()
