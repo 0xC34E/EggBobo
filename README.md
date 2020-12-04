@@ -1,0 +1,2 @@
+# EggBobo
+Discord moderation bot.
