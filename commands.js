@@ -179,8 +179,12 @@ class Commands {
     }
      
     static AntiSpam(message){
-        
-        if(message.content.toLowerCase().includes("nigger") || message.content.toLowerCase().includes("cum") || message.content.toLowerCase().includes("nigga") || message.content.toLowerCase().includes("nigg")){
+        var testMessage = message.content.replace(/\s/g, '');
+        if(testMessage.toLowerCase().includes("nigger") || testMessage.toLowerCase().includes("cum") || 
+           testMessage.toLowerCase().includes("сum") || testMessage.toLowerCase().includes("cuм") ||
+           testMessage.toLowerCase().includes("сuм") || testMessage.toLowerCase().includes("cüm") ||
+           testMessage.toLowerCase().includes("сüm") || testMessage.toLowerCase().includes("сüм") ||
+           testMessage.toLowerCase().includes("nigga") || testMessage.toLowerCase().includes("nigg")){
           message.delete();   
         }
         
