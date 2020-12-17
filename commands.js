@@ -180,7 +180,7 @@ class Commands {
      
     static AntiSpam(message){
         
-        if(message.content.toLowerCase().includes("nigger") || || message.content.toLowerCase().includes("cum") || message.content.toLowerCase().includes("nigga") || message.content.toLowerCase().includes("nigg")){
+        if(message.content.toLowerCase().includes("nigger") || message.content.toLowerCase().includes("cum") || message.content.toLowerCase().includes("nigga") || message.content.toLowerCase().includes("nigg")){
           message.delete();   
         }
         
