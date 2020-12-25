@@ -28,6 +28,7 @@ class Client
             "abusing status"
         ];
 
+        
         var index = getRandomInt(0, status.length - 1);
          client.user
             .setActivity(status[index] + " | e!help", {
