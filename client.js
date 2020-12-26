@@ -5,7 +5,7 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //woaaah woah wooooooah wooah woooa uh woooo wooo woooah
   }
-
+ 
 class Client 
 {
     static setRandomStatus(client) 
