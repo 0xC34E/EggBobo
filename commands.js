@@ -150,7 +150,7 @@ class Commands {
     static PycckaRPyletka(message) {
         let chance = getRandomInt(0, 5);
         let emoji = message.guild.emojis.cache.find(emoji => emoji.name === "eggboborr");
-        let mess = message.channel.send(`${emoji}`).then(mess=>{
+        let mess = message.channel.send(`${emoji} deciding your fate`).then(mess=>{
             let user = message.mentions.members.first();
             setTimeout(function(){
                if(chance > 0){
