@@ -149,7 +149,7 @@ class Commands {
 
     static PycckaRPyletka(message) {
         let chance = getRandomInt(0, 5);
-        let mess = message.channel.send(":taelsspin: Deciding your fate").then(mess=>{
+        let mess = message.channel.send(":eggboborussianroulette: Deciding your fate").then(mess=>{
             let user = message.mentions.members.first();
             setTimeout(function(){
                if(chance > 0){
