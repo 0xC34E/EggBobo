@@ -8,7 +8,11 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //woaaah woah wooooooah wooah woooa uh woooo wooo woooah
-  }
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function validURL(str) {
     var pattern = new RegExp(
@@ -49,7 +53,8 @@ class Commands {
         "e!ban <@mention> <reason>",
         "e!kick <@mention> <reason>",
         "**FUN**",
-        "e!trashfacts"
+        "e!trashfacts - Facts",
+        "e!russianroulette - Try your luck!"
     ];
 
     static antiSpamShit = [];
@@ -64,26 +69,26 @@ class Commands {
             case message.content.includes("e!help"):
                 this.Help(message);
                 break;
-                
+
             case message.content.includes("e!meme"):
                 this.Meme(message);
                 break;
-                
+
             case message.content.includes("e!say"):
-                if(!message.content.includes("e!kick") && !message.content.includes("e!ban")){
-                   message.delete();
-                   message.channel.send(message.content.split("e!say ")[1]);
-                }else message.channel.send("Mod abuse and cyber boobing");
+                if (!message.content.includes("e!kick") && !message.content.includes("e!ban")) {
+                    message.delete();
+                    message.channel.send(message.content.split("e!say ")[1]);
+                } else message.channel.send("Mod abuse and cyber boobing");
                 break;
-                
+
             case message.content.includes("e!avatar"):
                 this.Avatar(message);
                 break;
-            
+
             case message.content.includes("e!trashfacts"):
-                var retard = ["I love watching hentai with chads!","https://open.spotify.com/track/3PAr6to0KN3W3eUtpHNKQ0?si=6CEpgi3DTAWxxOvKNtbF7Q", "https://open.spotify.com/track/49MoLpFtl1d1z2HEMzAHlh?si=Q89Ia7J7QseXocKu9NhOlw", "fuck sunfire", "https://cdn.discordapp.com/attachments/740506225455661107/760233459826032750/unknown.png", "Why do you like this?","Every time you use this command, your iq lowered by 1%!!!!"]
-                message.channel.send(retard[getRandomInt(0,retard.length - 1)]);
-                
+                var retard = ["I love watching hentai with chads!", "https://open.spotify.com/track/3PAr6to0KN3W3eUtpHNKQ0?si=6CEpgi3DTAWxxOvKNtbF7Q", "https://open.spotify.com/track/49MoLpFtl1d1z2HEMzAHlh?si=Q89Ia7J7QseXocKu9NhOlw", "fuck sunfire", "https://cdn.discordapp.com/attachments/740506225455661107/760233459826032750/unknown.png", "Why do you like this?", "Every time you use this command, your iq lowered by 1%!!!!"]
+                message.channel.send(retard[getRandomInt(0, retard.length - 1)]);
+
                 break;
 
             case message.content.includes("e!credits"):
@@ -108,7 +113,7 @@ class Commands {
             case message.content.includes("e!play"):
                 this.Play(message);
                 break;
-                
+
             case message.content.includes("e!hentai"):
                 this.Hentai(message);
                 break;
@@ -131,101 +136,121 @@ class Commands {
             case message.content.includes("e!loop"):
                 this.Repeat(message);
                 break;
-                
+
             case message.content.includes("e!ban"):
                 this.Ban(message);
                 break;
-                
+
             case message.content.includes("e!kick"):
                 this.Kick(message);
+                break;
+            
+            case message.content.includes("e!russianroulette"):
+                this.PycckaRPyletka(message);
                 break;
         }
     }
 
-    static Hentai(message){
+    static PycckaRPyletka(message) {
+        let chance = getRandomInt(0, 5);
+        let message = message.channel.send(":taelsspin: Deciding your fate");
+        sleep(2000);
+        if(chance > 0){
+            message.edit(`${message.author.toString()} Missed shot due to no flop :pensive: `);
+        }else{
+            message.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1➼  ${message.author.toString()}`);
+            sleep(300);
+            message.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1 ➼  ${message.author.toString()}`);
+            sleep(100);
+            message.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1  ➼${message.author.toString()}`);
+            sleep(100)
+            message.member.ban();
+        }
+
+    }
+
+
+    static Hentai(message) {
         message.author.send("https://www.pornhub.com/view_video.php?viewkey=ph55b2ec08ad5b1");
     }
 
-    static Ban(message)
-    {
-           let mention = message.mentions.members.first();
+    static Ban(message) {
+        let mention = message.mentions.members.first();
 
-           // checking if message don't have a user mention
-           if (!mention){ message.channel.send('You need to mention a user.'); return;}else{
-               if (message.member.hasPermission("ADMINISTRATOR")) {
-                 mention.ban();
-              } else {
+        // checking if message don't have a user mention
+        if (!mention) { message.channel.send('You need to mention a user.'); return; } else {
+            if (message.member.hasPermission("ADMINISTRATOR")) {
+                mention.ban();
+            } else {
                 message.channel.send(
                     "No Permission to do that bro... <:ExLmao:700806104644583424>"
                 );
             }
-           }
+        }
     }
 
-    static Kick(message)
-    {
-           let mention = message.mentions.members.first();
+    static Kick(message) {
+        let mention = message.mentions.members.first();
 
-           // checking if message don't have a user mention
-           if (!mention){ message.channel.send('You need to mention a user.'); return;}else{
-                 if (message.member.hasPermission("ADMINISTRATOR")) {
-                 mention.kick();
-              } else {
+        // checking if message don't have a user mention
+        if (!mention) { message.channel.send('You need to mention a user.'); return; } else {
+            if (message.member.hasPermission("ADMINISTRATOR")) {
+                mention.kick();
+            } else {
                 message.channel.send(
                     "No Permission to do that bro... <:ExLmao:700806104644583424>"
                 );
             }
-           }
+        }
     }
-     
-    static AntiSpam(message){
+
+    static AntiSpam(message) {
         var testMessage = message.content.replace(/\s/g, '');
-        if(testMessage.toLowerCase().includes("nigger") || testMessage.toLowerCase().includes("cum") || 
-           testMessage.toLowerCase().includes("сum") || testMessage.toLowerCase().includes("cuм") ||
-           testMessage.toLowerCase().includes("сuм") || testMessage.toLowerCase().includes("cüm") ||
-           testMessage.toLowerCase().includes("сüm") || testMessage.toLowerCase().includes("сüм") ||
-           testMessage.toLowerCase().includes("nigga") || testMessage.toLowerCase().includes("nigg")){
-          message.delete();   
+        if (testMessage.toLowerCase().includes("nigger") || testMessage.toLowerCase().includes("cum") ||
+            testMessage.toLowerCase().includes("сum") || testMessage.toLowerCase().includes("cuм") ||
+            testMessage.toLowerCase().includes("сuм") || testMessage.toLowerCase().includes("cüm") ||
+            testMessage.toLowerCase().includes("сüm") || testMessage.toLowerCase().includes("сüм") ||
+            testMessage.toLowerCase().includes("nigga") || testMessage.toLowerCase().includes("nigg")) {
+            message.delete();
         }
-        
-        if(this.antiSpamShit[message.author.id] == null){
-            this.antiSpamShit[message.author.id] = new SpamMember(true,0);
+
+        if (this.antiSpamShit[message.author.id] == null) {
+            this.antiSpamShit[message.author.id] = new SpamMember(true, 0);
         }
-        
-        if(this.prevMessageAuthor != null && message.author == this.prevMessageAuthor){
-           this.antiSpamShit[message.author.id].counter++;
-           console.log(this.antiSpamShit[message.author.id].counter);
-           clearTimeout(this.currentElapsedTimer);
-           if(this.antiSpamShit[message.author.id].counter > 7){
-               if(!this.antiSpamShit[message.author.id].kick)
-                  message.member.kick('Anti-spam');
-               else
-                  message.member.ban();
-               this.antiSpamShit[message.author.id].kick = true;
-               this.antiSpamShit[message.author.id].counter = 0;
-               console.log(this.antiSpamShit[message.author.id].kick);
-           }else{
+
+        if (this.prevMessageAuthor != null && message.author == this.prevMessageAuthor) {
+            this.antiSpamShit[message.author.id].counter++;
+            console.log(this.antiSpamShit[message.author.id].counter);
+            clearTimeout(this.currentElapsedTimer);
+            if (this.antiSpamShit[message.author.id].counter > 7) {
+                if (!this.antiSpamShit[message.author.id].kick)
+                    message.member.kick('Anti-spam');
+                else
+                    message.member.ban();
+                this.antiSpamShit[message.author.id].kick = true;
+                this.antiSpamShit[message.author.id].counter = 0;
+                console.log(this.antiSpamShit[message.author.id].kick);
+            } else {
                 this.prevMessageAuthor = message.author;
-                this.currentElapsedTimer = setTimeout(function() {
-                   Commands.waitForTimeElapsed(message.author.id);
-            },1000);
-          }
+                this.currentElapsedTimer = setTimeout(function () {
+                    Commands.waitForTimeElapsed(message.author.id);
+                }, 1000);
+            }
         }
-        
+
         this.prevMessage = message.content;
         this.prevMessageAuthor = message.author;
     }
-    
- 
-    static waitForTimeElapsed(author){
+
+
+    static waitForTimeElapsed(author) {
         this.antiSpamShit[author].counter = 0;
     }
-    
+
 
     //Commands
-    static Meme(message)
-    {
-      https.get("https://meme-api.herokuapp.com/gimme", function (res) {
+    static Meme(message) {
+        https.get("https://meme-api.herokuapp.com/gimme", function (res) {
             var body = "";
 
             res.on("data", function (chunk) {
@@ -240,8 +265,8 @@ class Commands {
                 emd3.setTitle(fbResponse.title);
                 emd3.setFooter("Upvotes: " + fbResponse.ups);
                 emd3.setURL(fbResponse.postLink);
-                if(!fbResponse.nsfw)
-                   message.channel.send(emd3);
+                if (!fbResponse.nsfw)
+                    message.channel.send(emd3);
             });
         });
     }
@@ -381,9 +406,9 @@ class Commands {
     static Play(message) {
         if (message.member.voice.channel != null) {
             var url = message.content.split("e!play ")[1];
-            if (validURL(url)){
-            Player.addNewSong(url, message.author.username, message);
-            message.channel.send(":white_check_mark: Added to queue!");
+            if (validURL(url)) {
+                Player.addNewSong(url, message.author.username, message);
+                message.channel.send(":white_check_mark: Added to queue!");
             }
         }
         else {
@@ -419,13 +444,12 @@ class Commands {
     }
 }
 
-class SpamMember
-{
-   constructor(elapsed,a){
-    this.enoughTimeElapsed = elapsed;
-    this.kick = false;
-    this.counter = a;   
-   }
+class SpamMember {
+    constructor(elapsed, a) {
+        this.enoughTimeElapsed = elapsed;
+        this.kick = false;
+        this.counter = a;
+    }
 }
 
 module.exports = Commands;
