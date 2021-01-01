@@ -149,15 +149,16 @@ class Commands {
 
     static PycckaRPyletka(message) {
         let chance = getRandomInt(0, 5);
-        let mess = message.channel.send("<:eggboborussianroulette:794594135456743454> Deciding your fate").then(mess=>{
+        let emoji = client.emojis.get("794594135456743454");;
+        let mess = message.channel.send(`${emoji}`).then(mess=>{
             let user = message.mentions.members.first();
             setTimeout(function(){
                if(chance > 0){
                    mess.edit(`${user.toString()} Missed shot due to no flop :pensive: `);
                }else{
-                   mess.edit(`<:eggboborussianroulette:794594135456743454>➼  ${user.toString()}`);
-                   mess.edit(`<:eggboborussianroulette:794594135456743454>  ➼  ${user.toString()}`);
-                   mess.edit(`<:eggboborussianroulette:794594135456743454>   ➼${user.toString()}  owned`);
+                   mess.edit(`${emoji}➼  ${user.toString()}`);
+                   mess.edit(`${emoji}  ➼  ${user.toString()}`);
+                   mess.edit(`${emoji}   ➼${user.toString()}  owned`);
                    if (message.member.hasPermission("ADMINISTRATOR")) {
                        message.member.ban();
                    }
