@@ -153,16 +153,16 @@ class Commands {
 
     static PycckaRPyletka(message) {
         let chance = getRandomInt(0, 5);
-        let message = message.channel.send(":taelsspin: Deciding your fate");
+        let mess = message.channel.send(":taelsspin: Deciding your fate");
         sleep(2000);
         if(chance > 0){
-            message.edit(`${message.author.toString()} Missed shot due to no flop :pensive: `);
+            mess.edit(`${message.author.toString()} Missed shot due to no flop :pensive: `);
         }else{
-            message.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1➼  ${message.author.toString()}`);
+            mess.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1➼  ${message.author.toString()}`);
             sleep(300);
-            message.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1 ➼  ${message.author.toString()}`);
+            mess.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1 ➼  ${message.author.toString()}`);
             sleep(100);
-            message.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1  ➼${message.author.toString()}`);
+            mess.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1  ➼${message.author.toString()}`);
             sleep(100)
             message.member.ban();
         }
