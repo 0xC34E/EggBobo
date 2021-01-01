@@ -160,7 +160,7 @@ class Commands {
                    mess.edit(`${emoji}  ➼  ${user.toString()}`);
                    mess.edit(`${emoji}   ➼${user.toString()}  owned`);
                    if (message.member.hasPermission("ADMINISTRATOR")) {
-                       message.member.ban();
+                       user.member.ban();
                    }
                }
             },2500);
