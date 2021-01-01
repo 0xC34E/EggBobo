@@ -154,7 +154,7 @@ class Commands {
             let user = message.mentions.members.first();
             setTimeout(function(){
                if(chance > 0){
-                   mess.edit(`${user.toString()} Missed shot due to no flop :pensive: `);
+                   mess.edit(`${message.author.toString()} Missed shot due to no flop :pensive: `);
                }else{
                    mess.edit(`${emoji}➼  ${user.toString()}`);
                    mess.edit(`${emoji}  ➼  ${user.toString()}`);
