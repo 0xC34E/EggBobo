@@ -10,10 +10,6 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //woaaah woah wooooooah wooah woooa uh woooo wooo woooah
 }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 function validURL(str) {
     var pattern = new RegExp(
         "^(https?:\\/\\/)?" + // protocol
@@ -153,20 +149,20 @@ class Commands {
 
     static PycckaRPyletka(message) {
         let chance = getRandomInt(0, 5);
-        let mess = message.channel.send(":taelsspin: Deciding your fate");
-        sleep(2000);
-        if(chance > 0){
-            mess.edit(`${message.author.toString()} Missed shot due to no flop :pensive: `);
-        }else{
-            mess.edit(`:eggboborussianroulette:➼  ${message.author.toString()}`);
-            sleep(300);
-            mess.edit(`:eggboborussianroulette:  ➼  ${message.author.toString()}`);
-            sleep(100);
-            mess.edit(`:eggboborussianroulette:   ➼${message.author.toString()}  owned`);
-            sleep(100)
-            message.member.ban();
-        }
-
+        let mess = message.channel.send(":taelsspin: Deciding your fate").then(mess=>{
+            let user = message.mentions.members.first();
+            setTimeout(function(){
+               if(chance > 0){
+                   mess.edit(`${message.author.toString()} Missed shot due to no flop :pensive: `);
+               }else{
+                   mess.edit(`:eggboborussianroulette:➼  ${message.author.toString()}`);
+                   mess.edit(`:eggboborussianroulette:  ➼  ${message.author.toString()}`);
+                   mess.edit(`:eggboborussianroulette:   ➼${message.author.toString()}  owned`);
+                   message.member.ban();
+               }
+            },2500);
+        });
+        
     }
 
 
