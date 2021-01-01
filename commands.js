@@ -158,11 +158,11 @@ class Commands {
         if(chance > 0){
             mess.edit(`${message.author.toString()} Missed shot due to no flop :pensive: `);
         }else{
-            mess.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1➼  ${message.author.toString()}`);
+            mess.edit(`:eggboborussianroulette:➼  ${message.author.toString()}`);
             sleep(300);
-            mess.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1 ➼  ${message.author.toString()}`);
+            mess.edit(`:eggboborussianroulette:  ➼  ${message.author.toString()}`);
             sleep(100);
-            mess.edit(`lol owned https://cdn.discordapp.com/emojis/652189664756629504.png?v=1  ➼${message.author.toString()}`);
+            mess.edit(`:eggboborussianroulette:   ➼${message.author.toString()}  owned`);
             sleep(100)
             message.member.ban();
         }
