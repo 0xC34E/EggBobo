@@ -152,6 +152,7 @@ class Commands {
         let emoji = message.guild.emojis.cache.find(emoji => emoji.name === "eggboborr");
         let mess = message.channel.send(`${emoji} deciding your fate`).then(mess=>{
             let user = message.mentions.members.first();
+            if(user == null){message.channel.send("Please mention someone first!"); return;}
             setTimeout(function(){
                if(chance > 0){
                    mess.edit(`${message.author.toString()} Missed shot due to no flop :pensive: `);
