@@ -157,7 +157,7 @@ class Commands {
            let member = message.mentions.members.first();
            var role= member.guild.roles.cache.find(role => role.name === "bad omen");
            member.roles.add(role);
-           message.channel.send("User " + member.nickname + " got warned!", {files: ["https://cdn.discordapp.com/attachments/611938742134898700/802858656177192990/Bad_Omen_Bedrock_Animation.gif"]});
+           message.channel.send("User " + member.tag + " got warned!", {files: ["https://cdn.discordapp.com/attachments/611938742134898700/802858656177192990/Bad_Omen_Bedrock_Animation.gif"]});
         }else{
            message.channel.send("lol it's no use");   
         }
