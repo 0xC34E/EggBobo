@@ -48,6 +48,7 @@ class Commands {
         "**MODERATION**",
         "e!ban <@mention> <reason>",
         "e!kick <@mention> <reason>",
+        "e!warn <@mention>",
         "**FUN**",
         "e!trashfacts - Facts",
         "e!russianroulette - Try your luck!"
