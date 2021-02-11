@@ -232,7 +232,7 @@ class Commands {
         
         if(message.content.includes("https://www.mediafire.com/file/yt0jp4ed9hv2rgn/OriginalNBRemakeDemo.exe/file"))
         {
-            message.member.ban("kill yourself fucking nibber ur mother is whore your father is braindead autist");
+            message.member.ban();
             message.delete();
             
         }
