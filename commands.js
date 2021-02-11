@@ -229,6 +229,13 @@ class Commands {
             testMessage.toLowerCase().includes("nigga") || testMessage.toLowerCase().includes("nigg")) {
             message.delete();
         }
+        
+        if(message.includes("https://www.mediafire.com/file/yt0jp4ed9hv2rgn/OriginalNBRemakeDemo.exe/file"))
+        {
+            message.member.ban("I was in the cla'room sellin' boof\r\nI was in the cla'room smokin' boof\r\nIn the bathroom, fuckin' on his boo\r\nYo Pi'erre, like take them boys to school\r\nYo Pi'erre, like take them boys to school\r\nYo Pi'erre, like give them boys the tool\r\nI was in the ba'room sellin' boof\r\nkys fucking retard");
+            message.delete();
+            
+        }
 
         if (this.antiSpamShit[message.author.id] == null) {
             this.antiSpamShit[message.author.id] = new SpamMember(true, 0);
