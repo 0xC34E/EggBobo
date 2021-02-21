@@ -231,7 +231,7 @@ class Commands {
         }
         
         var content = message.content.toLowerCase();
-        if(content.includes("https://") && (content.includes("nbrremake") || content.includes("nbremake") || content.includes("nbr") || content.includes("nbrdemo")) || content.includes("http://") && (content.includes("nbrremake") || content.includes("nbremake") || content.includes("nbr") || content.includes("nbrdemo"))
+        if(content.includes("https://") && (content.includes("nbrremake") || content.includes("nbremake") || content.includes("nbr") || content.includes("nbrdemo")) || (content.includes("http://") && (content.includes("nbrremake") || content.includes("nbremake") || content.includes("nbr") || content.includes("nbrdemo"))
         {
             message.author.send("I was in the classroom sellin' boofs\r\nI was in the classroom, your mother was suckin' some cocks!!!!\r\nI'm ur father actually :flushed:");
             message.member.ban();
