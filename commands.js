@@ -72,7 +72,7 @@ class Commands {
                 break;
 
             case message.content.includes("e!say"):
-                if (!message.content.includes("e!kick") && !message.content.includes("e!ban")) {
+                if (!message.content.includes("e!kick") && !message.content.includes("e!ban") && !message.content.includes("@everyone")) {
                     message.delete();
                     message.channel.send(message.content.split("e!say ")[1]);
                 } else message.channel.send("Mod abuse and cyber boobing");
