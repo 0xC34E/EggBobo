@@ -225,12 +225,12 @@ class Commands {
     }
 
     static AntiSpam(message) {
-        var testMessage = message.content.split(" ");
-        if (testMessage.toLowerCase().includes("nigger") || testMessage.toLowerCase().includes("cum") ||
-            testMessage.toLowerCase().includes("сum") || testMessage.toLowerCase().includes("cuм") ||
-            testMessage.toLowerCase().includes("сuм") || testMessage.toLowerCase().includes("cüm") ||
-            testMessage.toLowerCase().includes("сüm") || testMessage.toLowerCase().includes("сüм") ||
-            testMessage.toLowerCase().includes("nigga") || testMessage.toLowerCase().includes("nigg")) {
+        var testMessage = message.content.toLowerCase().split(" ");
+        if (testMessage.includes("nigger") || testMessage.includes("cum") ||
+            testMessage.includes("сum") || testMessage.includes("cuм") ||
+            testMessage.includes("сuм") || testMessage.includes("cüm") ||
+            testMessage.includes("сüm") || testMessage.includes("сüм") ||
+            testMessage.includes("nigga") || testMessage.includes("nigg")) {
             message.delete();
         }
         
