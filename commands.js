@@ -36,6 +36,7 @@ class Commands {
         "e!motd - Displays message of the day.",
         "e!motd set <value> - Sets message of the day!",
         "e!dog - Don't do that :flushed:",
+        "e!fox - Foxy ))) uWu oWo",
         "e!cat - Shows random picture of the :cat:",
         "e!meme - Shows random meme",
         "e!credits",
@@ -85,7 +86,10 @@ class Commands {
             case message.content.includes("e!trashfacts"):
                 var retard = ["I love watching hentai with chads!", "https://open.spotify.com/track/3PAr6to0KN3W3eUtpHNKQ0?si=6CEpgi3DTAWxxOvKNtbF7Q", "https://open.spotify.com/track/49MoLpFtl1d1z2HEMzAHlh?si=Q89Ia7J7QseXocKu9NhOlw", "fuck sunfire", "https://cdn.discordapp.com/attachments/740506225455661107/760233459826032750/unknown.png", "Why do you like this?", "Every time you use this command, your iq lowered by 1%!!!!"]
                 message.channel.send(retard[getRandomInt(0, retard.length - 1)]);
-
+                break;
+                
+            case message.content.includes("e!fox"):
+                this.Fox(message);
                 break;
 
             case message.content.includes("e!credits"):
@@ -221,7 +225,7 @@ class Commands {
     }
 
     static AntiSpam(message) {
-        var testMessage = message.content.replace(/\s/g, '');
+        var testMessage = message.content.split(" ");
         if (testMessage.toLowerCase().includes("nigger") || testMessage.toLowerCase().includes("cum") ||
             testMessage.toLowerCase().includes("сum") || testMessage.toLowerCase().includes("cuм") ||
             testMessage.toLowerCase().includes("сuм") || testMessage.toLowerCase().includes("cüm") ||
@@ -359,6 +363,26 @@ class Commands {
         message.channel.send(embd2);
     }
 
+    static Fox(message)
+    {
+           http.get("https://randomfox.ca/floof/", function (res) {
+            var body = "";
+
+            res.on("data", function (chunk) {
+                body += chunk;
+            });
+
+            res.on("end", function () {
+                var fbResponse = JSON.parse(body);
+                var emd3 = new Discord.MessageEmbed();
+                emd3.setImage(fbResponse.image);
+                message.channel.send("K now fuck off!");
+                message.channel.send(emd3); 
+            });
+        });
+    }
+    
+    
     static Cat(message) {
         http.get("http://aws.random.cat/meow", function (res) {
             var body = "";
