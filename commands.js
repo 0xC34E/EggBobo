@@ -365,7 +365,7 @@ class Commands {
 
     static Fox(message)
     {
-           http.get("http://randomfox.ca/floof/", function (res) {
+           https.get("https://randomfox.ca/floof/", function (res) {
             var body = "";
 
             res.on("data", function (chunk) {
